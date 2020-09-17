@@ -6,7 +6,7 @@ def stripCentury(number):
     This is not included in the algorithm for calculating the
     final digit, and thus is removed by this function."""
     length = len(number)
-    print(f'stripCentury: length: {length}')
+    # print(f'stripCentury: length: {length}')
     if not number.isdigit():
         print('Error: input is not a number.')
         return None, False
@@ -32,7 +32,7 @@ def fixFormat(number):
 
     number = number.replace("-", "")
     number, full = stripCentury(number)
-    print(f'fixFormat: returning number: {number}')
+    # print(f'fixFormat: returning number: {number}')
     return number, full
 
 
@@ -41,12 +41,12 @@ def doubleAndSum(number):
 
     Takes an integer and doubles it, and then adds the numbers together."""
 
-    print(f'    doubleAndSum: incoming number: {number}')
+    # print(f'    doubleAndSum: incoming number: {number}')
     number *= 2
-    print(f'    doubleAndSum: doubled number: {number}')
+    # print(f'    doubleAndSum: doubled number: {number}')
     if number >= 10:
         number = number // 10 + number % 10
-    print(f'    doubleAndSum: returning number: {number}')
+    # print(f'    doubleAndSum: returning number: {number}')
     return number
 
 
@@ -69,11 +69,11 @@ def calculateControlDigit(number):
             cumulative_sum += doubleAndSum(digit)
         else:
             cumulative_sum += digit
-        print(f'calculateControlDigit: sum: {cumulative_sum}')
+        # print(f'calculateControlDigit: sum: {cumulative_sum}')
 
-    print(f'calculateControlDigit: final sum: {cumulative_sum}')
+    # print(f'calculateControlDigit: final sum: {cumulative_sum}')
     # This is equivalent to taking the following multiple of ten minus the number
-    control = (cumulative_sum // 10 + 1) * 10 - cumulative_sum
+    control = ((cumulative_sum // 10 + 1) * 10 - cumulative_sum) % 10
     # higher = int(str(cumulative_sum)[0] + '0') + 10
     # control = higher - cumulative_sum
     return control
@@ -101,7 +101,8 @@ if __name__ == "__main__":
         control = calculateControlDigit(number)
     else:
         print('invalid number')
-    print(f'main: control digit: {control}')
+        exit()
+    # print(f'main: control digit: {control}')
 
     if full:
         printControlDigitMatch(number, control)
