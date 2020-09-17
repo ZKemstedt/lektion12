@@ -48,7 +48,8 @@ class Entry(object):
 
 def input_email(retries: int = 3) -> str:
     email = input('Enter email\n>>> ')
-    match = re.match(r'[^@]+@[^@]+.[^@]+', email)
+    # match = re.match(r'[^@]+@[^@]+.[^@]+', email)
+    match = re.match(r'.+[@].+[.].+', email)
     print(match)
     if not match:
         if not retries:
