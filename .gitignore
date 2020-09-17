@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Seminar related files
+*.pdf
+personnummer.py
+
 # C extensions
 *.so
 
